@@ -1,0 +1,12 @@
+print("Write how many cups of coffee you will need:")
+numofcups = int(input())
+
+print("For " + str(numofcups) + " cups of coffee you will need:")
+water = 200 * numofcups
+milk = 50 * numofcups
+coffeebeans = 15 * numofcups
+
+print(str(water) + " ml of water")
+print(str(milk) + " ml of milk")
+print(str(coffeebeans) + " g of coffee beans")
+
