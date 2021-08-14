@@ -1,0 +1,22 @@
+waterperone = 200
+milkperone = 50
+beansperone = 15
+
+print("Write how many ml of water the coffee machine has:")
+water = int(input())
+print("Write how many ml of milk the coffee machine has:")
+milk = int(input())
+print("Write how many grams of coffee beans the coffee machine has:")
+beans = int(input())
+print("Write how many cups of coffee you will need:")
+wantedcups = int(input())
+cups_available = min([water / waterperone, milk / milkperone, beans / beansperone])
+
+n = cups_available - wantedcups
+
+if n // 10 >= 0 and n < 1:
+    print("Yes, I can make that amount of coffee")
+elif n >= 1:
+    print("Yes, I can make that amount of coffee (and even " + str(int(n)) + " more than that)")
+elif n < 0:
+    print("No, I can make only " + str(int(cups_available)) + " cups of coffee")
