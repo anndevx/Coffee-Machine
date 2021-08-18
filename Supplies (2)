@@ -1,0 +1,131 @@
+water = 400 
+milk = 540
+beans = 120
+disp_cups = 9
+money = 550
+
+
+def buy():
+    buydrink = input('What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu: ')
+    if buydrink == "1":
+        espresso()
+    elif buydrink == "2":
+        latte()
+    elif buydrink == "3":
+        cappuccino()
+    elif buy == "back":
+        return
+
+
+def espresso():
+    global water, beans, disp_cups, money
+
+    if water < 250:
+        print("Sorry, not enough water!")
+    elif beans < 16:
+        print("Sorry, not enough coffee beans!")
+    elif disp_cups < 1:
+        print("Sorry, not enough disposable cups!")
+    else:
+        print("I have enough resources, making you a coffee!")
+
+        water -= 250
+        beans -= 16
+        disp_cups -= 1
+        money += 4
+
+    return
+
+
+def latte():
+    global water, milk, beans, disp_cups, money
+
+    if water < 350:
+        print("Sorry, not enough water!")
+    elif milk < 75:
+        print("Sorry, not enough milk!")
+    elif beans < 20:
+        print("Sorry, not enough coffee beans!")
+    elif disp_cups < 1:
+        print("Sorry, not enough disposable cups!")
+    else:
+        print("I have enough resources, making you a coffee!")
+
+        water -= 350
+        milk -= 75
+        beans -= 20
+        disp_cups -= 1
+        money += 7
+
+    return
+
+
+def cappuccino():
+    global water, milk, beans, disp_cups, money
+
+    if water < 200:
+        print("Sorry, not enough water!")
+    elif milk < 100:
+        print("Sorry, not enough milk!")
+    elif beans < 12:
+        print("Sorry, not enough coffee beans!")
+    elif disp_cups < 1:
+        print("Sorry, not enough disposable cups!")
+    else:
+        print("I have enough resources, making you a coffee!")
+        
+        water -= 200
+        milk -= 100
+        beans -= 12
+        disp_cups -= 1
+        money += 6
+    
+
+    return
+
+
+def fill():
+    global water, milk, beans, disp_cups
+
+    addedwater = int(input("Write how many ml of water you want to add: "))
+    addedmilk = int(input("Write how many ml of milk you want to add: "))
+    addedbeans = int(input("Write how many grams of coffee beans you want to add: "))
+    addedcups = int(input("Write how many disposable coffee cups you want to add: "))
+
+    water += addedwater
+    milk += addedmilk
+    beans += addedbeans
+    disp_cups += addedcups
+
+    return
+
+
+def take():
+    global money
+    print("I gave you $", money)
+    money = money - money
+    return
+
+
+def remaining():
+    print("The coffee machine has: ")
+    print(water, " of water")
+    print(milk, " of milk")
+    print(beans, " of coffee beans")
+    print(disp_cups, " of disposable cups")
+    print("$", money, " of money")
+    return
+
+
+while True:
+    inp = input("Write action (buy, fill, take, remaining, exit): ")
+    if inp == "buy":
+        buy()
+    elif inp == "fill":
+        fill()
+    elif inp == "take":
+        take()
+    elif inp == "remaining":
+        remaining()
+    elif inp == "exit":
+        break
